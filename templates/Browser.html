@@ -1,0 +1,42 @@
+{% extends 'Foundation.html' %}
+
+{% block breadcrumbNav %}
+    {% if iosv is defined %}
+        <li class="breadcrumb-item active"><a href="{{ url_for('BrowserBP.listiOSV') }}"><span>iOS</span></a></li>
+        <li class="breadcrumb-item active"><a href="{{ url_for('BrowserBP.listSDKOptions', ios_version=iosv) }}"><span>{{ iosv }}</span></a></li>
+    {% endif %}
+    {% if private is defined %}
+        <li class="breadcrumb-item active"><a href="{{ url_for('BrowserBP.listPrivateFrameworks', ios_version=iosv) }}"><span>Private Frameworks</span></a></li>
+        {% if frameworkName is defined %}
+            <li class="breadcrumb-item active"><a href="{{ url_for('BrowserBP.listPrivateFrameworksF', ios_version=iosv, framework=frameworkName) }}"><span>{{ frameworkName }}</span></a></li>
+        {% endif %}
+    {% else %}
+        <li class="breadcrumb-item active"><a href="{{ url_for('BrowserBP.listFrameworks', ios_version=iosv) }}"><span>Frameworks</span></a></li>
+        {% if frameworkName is defined %}
+            <li class="breadcrumb-item active"><a href="{{ url_for('BrowserBP.listFrameworksF', ios_version=iosv, framework=frameworkName) }}"><span>{{ frameworkName }}</span></a></li>
+        {% endif %}
+    {% endif %}
+    {% if fileName is defined %}
+        <li class="breadcrumb-item"><a href="#"><span>{{ fileName }}</span></a></li>
+    {% endif %}
+{% endblock %}
+
+{% block contentdiv %}
+    {% if entries is defined %}
+        <ol class="list-group list-group-flush">
+            {% for entry in entries | sort(case_sensitive=False) %}
+                {% if linkType | int == 1 %} <!-- Links lead to files directly (frameworks) -->
+                    <a href="{{ url_for('BrowserBP.getFFile', ios_version=iosv, framework=frameworkName, file=entry) }}" class="list-group-item list-group-item-action">{{ entry }}</a>
+                {% elif linkType | int == 2 %} <!-- Links lead to files directly (private frameworks)-->
+                    <a href="{{ url_for('BrowserBP.getPFFile', ios_version=iosv, framework=frameworkName, file=entry) }}" class="list-group-item list-group-item-action">{{ entry }}</a>
+                {% elif linkType | int == 3 %} <!-- Links lead to folder content (frameworks)-->
+                    <a href="{{ url_for('BrowserBP.listFrameworksF', ios_version=iosv, framework=entry) }}" class="list-group-item list-group-item-action">{{ entry }}</a>
+                {% elif linkType | int == 4 %} <!-- Links lead to folder content (private frameworks)-->
+                    <a href="{{ url_for('BrowserBP.listPrivateFrameworksF', ios_version=iosv, framework=entry) }}" class="list-group-item list-group-item-action">{{ entry }}</a>
+                {% else %}
+                    <a href="#" class="list-group-item list-group-item-action">{{ entry }}</a>
+                {% endif %}
+            {% endfor %}
+        </ol>
+    {% endif %}
+{% endblock %}
