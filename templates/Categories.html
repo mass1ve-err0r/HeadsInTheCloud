@@ -1,0 +1,17 @@
+{% extends 'Foundation.html' %}
+
+{% block breadcrumbNav %}
+    {% if iosv is defined %}
+        <li class="breadcrumb-item active"><a href="{{ url_for('BrowserBP.listiOSV') }}"><span>iOS</span></a></li>
+        <li class="breadcrumb-item active"><a href="{{ url_for('BrowserBP.listSDKOptions', ios_version=iosv) }}"><span>{{ iosv }}</span></a></li>
+    {% endif %}
+{% endblock %}
+
+{% block contentdiv %}
+    <ol class="list-group list-group-flush">
+        <a href="{{ url_for('BrowserBP.listFrameworks', ios_version=iosv) }}" class="list-group-item list-group-item-action">Frameworks</a>
+        <a href="{{ url_for('BrowserBP.listLibraries', ios_version=iosv) }}" class="list-group-item list-group-item-action">Library</a>
+        <a href="{{ url_for('BrowserBP.listPrivateFrameworks', ios_version=iosv) }}" class="list-group-item list-group-item-action">PrivateFrameworks</a>
+        <a href="{{ url_for('BrowserBP.listProtocols', ios_version=iosv) }}" class="list-group-item list-group-item-action">Protocols</a>
+    </ol>
+{% endblock %}

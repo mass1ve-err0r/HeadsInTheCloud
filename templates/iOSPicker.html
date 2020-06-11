@@ -1,0 +1,13 @@
+{% extends 'Foundation.html' %}
+
+{% block breadcrumbNav %}
+    <li class="breadcrumb-item active"><a href="{{ url_for('BrowserBP.listiOSV') }}"><span>iOS</span></a></li>
+{% endblock %}
+
+{% block contentdiv %}
+    <ol class="list-group list-group-flush">
+        {% for entry in entries | sort(case_sensitive=False) %}
+            <a href="{{ url_for('BrowserBP.listSDKOptions', ios_version=entry) }}" class="list-group-item list-group-item-action">{{ entry }}</a>
+        {% endfor %}
+    </ol>
+{% endblock %}
