@@ -12,6 +12,10 @@
         <a href="{{ url_for('BrowserBP.listFrameworks', ios_version=iosv) }}" class="list-group-item list-group-item-action">Frameworks</a>
         <a href="{{ url_for('BrowserBP.listLibraries', ios_version=iosv) }}" class="list-group-item list-group-item-action">Library</a>
         <a href="{{ url_for('BrowserBP.listPrivateFrameworks', ios_version=iosv) }}" class="list-group-item list-group-item-action">PrivateFrameworks</a>
-        <a href="{{ url_for('BrowserBP.listProtocols', ios_version=iosv) }}" class="list-group-item list-group-item-action">Protocols</a>
+        {% if iosv == '12.4' %}
+            <a href="{{ url_for('BrowserBP.listProtocols', ios_version=iosv) }}" class="list-group-item list-group-item-action">SpringBoard</a>
+        {% else %}
+            <a href="{{ url_for('BrowserBP.listProtocols', ios_version=iosv) }}" class="list-group-item list-group-item-action">Protocols</a>
+        {% endif %}
     </ol>
 {% endblock %}

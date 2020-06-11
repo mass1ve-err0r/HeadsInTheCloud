@@ -13,6 +13,8 @@
     {% else %}
         {% if isLib is defined %}
             <li class="breadcrumb-item active"><a href="{{ url_for('BrowserBP.listLibraries', ios_version=iosv) }}"><span>lib</span></a></li>
+        {% elif isOther is defined %}
+            <li class="breadcrumb-item active"><a href="{{ url_for('BrowserBP.listProtocols', ios_version=iosv) }}"><span>{{ oName }}</span></a></li>
         {% else %}
             <li class="breadcrumb-item active"><a href="{{ url_for('BrowserBP.listFrameworks', ios_version=iosv) }}"><span>Frameworks</span></a></li>
             {% if frameworkName is defined %}
@@ -44,6 +46,8 @@
                     <a href="{{ url_for('BrowserBP.getLFile', ios_version=iosv, library=lib, file=entry) }}" class="list-group-item list-group-item-action">{{ entry }}</a>
                 {% elif linkType | int == 6 %} <!-- Links lead to folder content (lib)-->
                     <a href="{{ url_for('BrowserBP.listLibraries', ios_version=iosv, library=lib, file=entry) }}" class="list-group-item list-group-item-action">{{ entry }}</a>
+                {% elif linkType | int == 7 %} <!-- Links lead to files (other)-->
+                    <a href="{{ url_for('BrowserBP.getPRTCLFile', ios_version=iosv, file=entry) }}" class="list-group-item list-group-item-action">{{ entry }}</a>
                 {% else %}
                     <a href="#" class="list-group-item list-group-item-action">{{ entry }}</a>
                 {% endif %}
