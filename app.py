@@ -8,21 +8,16 @@ app.register_blueprint(BrowserBP)
 
 
 @app.route('/')
-def hello_world():
+def index():
     return render_template('Homepage.html')
+
+
+@app.route('/contact')
+def contactme():
+    return render_template('Contact.html')
 
 
 if __name__ == '__main__':
     app.run(debug=True)
 
 
-'''
-@app.route('/test')
-def tests():
-    x = 0
-    for root, framework, files in os.walk('SDKs/iOS124/SpringBoard'):
-        for entry in files:
-            print("\"" + entry + "\",")
-    print(x)
-    return 'OK !'
-'''
