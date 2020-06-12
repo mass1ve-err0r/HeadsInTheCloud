@@ -1,6 +1,7 @@
 {% extends 'Foundation.html' %}
 
 {% block breadcrumbNav %}
+    <li class="breadcrumb-item active"><a href={{ url_for('index') }}><span>Home</span></a></li>
     <li class="breadcrumb-item active"><a href="{{ url_for('BrowserBP.listiOSV') }}"><span>iOS</span></a></li>
 {% endblock %}
 
