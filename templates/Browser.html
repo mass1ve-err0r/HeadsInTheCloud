@@ -39,13 +39,13 @@
                 {% elif linkType | int == 2 %} <!-- Links lead to files directly (private frameworks)-->
                     <a href="{{ url_for('BrowserBP.getPFFile', ios_version=iosv, framework=frameworkName, file=entry) }}" class="list-group-item list-group-item-action">{{ entry }}</a>
                 {% elif linkType | int == 3 %} <!-- Links lead to folder content (frameworks)-->
-                    <a href="{{ url_for('BrowserBP.listFrameworksF', ios_version=iosv, framework=entry) }}" class="list-group-item list-group-item-action">{{ entry }}</a>
+                    <a href="{{ url_for('BrowserBP.listFrameworksF', ios_version=iosv, framework=entry) }}" class="list-group-item list-group-item-action" target="_blank">{{ entry }}</a>
                 {% elif linkType | int == 4 %} <!-- Links lead to folder content (private frameworks)-->
-                    <a href="{{ url_for('BrowserBP.listPrivateFrameworksF', ios_version=iosv, framework=entry) }}" class="list-group-item list-group-item-action">{{ entry }}</a>
+                    <a href="{{ url_for('BrowserBP.listPrivateFrameworksF', ios_version=iosv, framework=entry) }}" class="list-group-item list-group-item-action" target="_blank">{{ entry }}</a>
                 {% elif linkType | int == 5 %} <!-- Links lead to files directly (lib)-->
                     <a href="{{ url_for('BrowserBP.getLFile', ios_version=iosv, library=lib, file=entry) }}" class="list-group-item list-group-item-action">{{ entry }}</a>
                 {% elif linkType | int == 6 %} <!-- Links lead to folder content (lib)-->
-                    <a href="{{ url_for('BrowserBP.listLibraries', ios_version=iosv, library=lib, file=entry) }}" class="list-group-item list-group-item-action">{{ entry }}</a>
+                    <a href="{{ url_for('BrowserBP.listLibraries', ios_version=iosv, library=lib, file=entry) }}" class="list-group-item list-group-item-action" target="_blank">{{ entry }}</a>
                 {% elif linkType | int == 7 %} <!-- Links lead to files (other)-->
                     <a href="{{ url_for('BrowserBP.getPRTCLFile', ios_version=iosv, file=entry) }}" class="list-group-item list-group-item-action">{{ entry }}</a>
                 {% else %}

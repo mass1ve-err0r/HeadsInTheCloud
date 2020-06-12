@@ -8,6 +8,19 @@
 {% endblock %}
 
 {% block contentdiv %}
+    {% if iosv is defined %}
+    {% if iosv == "12.4" %}
+        <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+            Headers were dumped with class-dump
+        </div>
+    {% else %}
+        <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+            Headers were dumped with RuntimeBrowser
+        </div>
+    {% endif %}
+{% endif %}
     <ol class="list-group list-group-flush">
         <a href="{{ url_for('BrowserBP.listFrameworks', ios_version=iosv) }}" class="list-group-item list-group-item-action">Frameworks</a>
         <a href="{{ url_for('BrowserBP.listLibraries', ios_version=iosv) }}" class="list-group-item list-group-item-action">Library</a>
