@@ -59,6 +59,9 @@ And there you go, new SDK added!
 
 If there are any questions regarding _HITC_, please do email me under saadatdev (at) googlemail (dot) com
 
+## Extras
+- An optimization idea would be to create indiviual html files for each header. Keeping everything static & with the help of pygments actually doable.
+
 ## Credits
 - Limneos - Original iOS Headers' Webpage
 - Amarytha - HeadsInTheCloud Icon
