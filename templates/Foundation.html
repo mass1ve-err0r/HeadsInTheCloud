@@ -15,7 +15,7 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-light navbar-expand-lg bg-white">
-        <div class="container-fluid"><a href={{ url_for('index') }} class="navbar-brand">Heads In The Cloud</a><button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggler"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container-fluid"><a href={{ url_for('index') }} class="navbar-brand" style="font-size: 25px"><img src={{ url_for('static', filename='HeadsInTheCloud.png') }} width="35" height="35" class="d-inline-block align-top mr-2" alt="">Heads In The Cloud</a><button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggler"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse"
                 id="navcol-1">
                 <ul class="nav navbar-nav ml-auto">
@@ -38,6 +38,7 @@
     <!-- Footer -->
     <div class="p-4 container">
         <div class="container text-center p-2">
+            <img src={{ url_for('static', filename='HeadsInTheCloud.png') }} width="75" height="75" class="d-inline-block align-top mr-2" alt="">
             <h4 class="text-muted pt-3">Heads In The Cloud</h4>
             <p class="text-muted pt-1">Providing headers for all your jailbroken iOS reverse engineering needs.</p>
             <div class="text-muted d-flex justify-content-center flex-wrap justify-content-xl-center align-items-xl-center pt-2">
