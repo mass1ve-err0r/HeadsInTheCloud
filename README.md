@@ -2,6 +2,10 @@
 > iOS Public & Private Headers | Python 3.6+ | Fast | Any SDK
 
 ## Introduction
+
+**PLEASE USE THE UPDATED VERSION! THIS IS NOW DEPRICATED. [CLICK HERE TO VIEW V2](https://github.com/mass1ve-err0r/HeadsInTheCloud2)**
+
+
 _Heads In The Cloud_ is a Flask-app to serve header files. 
 
 This is reminiscent to Limneos' iOS Header service and serves as alternative to it.
